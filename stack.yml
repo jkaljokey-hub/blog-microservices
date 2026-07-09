@@ -12,7 +12,7 @@ services:
       replicas: 2
 
   api:
-    image: abuabakaralnour/blog-api:v22
+    image: abuabakaralnour/blog-api:v23
     secrets:
       - db_password
     networks:
@@ -52,6 +52,53 @@ services:
     networks:
       - backend
 
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - prometheus-data:/etc/prometheus
+    networks:
+      - backend
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - backend
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      - backend
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    ports:
+      - "9100:9100"
+    networks:
+      - backend
+    deploy:
+      mode: global
+
 networks:
   frontend:
     driver: overlay
@@ -64,3 +111,5 @@ secrets:
 
 volumes:
   postgres-data:
+  grafana-data:
+  prometheus-data:
