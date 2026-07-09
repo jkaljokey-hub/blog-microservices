@@ -109,7 +109,7 @@ Grafana Dashboards
 - Internal Service Discovery
 - Rolling Updates
 - Rollback Configuration
-- Health Monitoring
+- Health Monitoringg
 
 ### Monitoring
 
