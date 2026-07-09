@@ -1,5 +1,23 @@
 # 🚀 Cloud-Native Microservices Platform on Docker Swarm
 
+![Docker](https://img.shields.io/badge/Docker-Swarm-2496ED?logo=docker&logoColor=white)
+
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI%2FCD-2088FF?logo=github-actions&logoColor=white)
+
+![Prometheus](https://img.shields.io/badge/Prometheus-Monitoring-E6522C?logo=prometheus&logoColor=white)
+
+![Grafana](https://img.shields.io/badge/Grafana-Dashboard-F46800?logo=grafana&logoColor=white)
+
+![Redis](https://img.shields.io/badge/Redis-Cache-DC382D?logo=redis&logoColor=white)
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791?logo=postgresql&logoColor=white)
+
+![Node.js](https://img.shields.io/badge/Node.js-Express-339933?logo=node.js&logoColor=white)
+
+![Next.js](https://img.shields.io/badge/Next.js-Frontend-black?logo=next.js)
+
+
+
 A production-inspired cloud project demonstrating how to deploy, scale, monitor, and automate a multi-service application using **Docker Swarm**.
 
 Instead of focusing on application complexity, this project focuses on **infrastructure engineering**, service orchestration, monitoring, and deployment strategies.
@@ -41,12 +59,11 @@ Grafana Dashboards
 
 ## Project Highlights
 
-- Docker Swarm Cluster
-- Multi-node deployment
-- Overlay Networking
-- Docker Routing Mesh
-- Service Discovery
-- Docker Secrets
+- Multi-node Docker Swarm Cluster
+- Microservices Architecture
+- Docker Overlay Networking
+- Internal Service Discovery
+- Docker Secrets Management
 - Rolling Updates
 - Automatic Rollback
 - Health Checks
@@ -54,9 +71,10 @@ Grafana Dashboards
 - PostgreSQL Database
 - Prometheus Monitoring
 - Grafana Dashboards
-- CI/CD Ready
+- GitHub Actions CI/CD Pipeline
+- Automated Docker Image Build & Push
+- Automated Stack Deployment
 - Horizontal Scaling
-
 ---
 
 ## Technologies
@@ -206,41 +224,50 @@ Real-time metrics include:
 ```
 
 ---
+## CI/CD Pipeline
 
-## Deployment
+Every push to the main branch automatically triggers GitHub Actions.
 
-Deploy the application:
-
-```bash
-docker stack deploy -c stack.yml blog
+```text
+Developer
+     │
+     ▼
+GitHub Push
+     │
+     ▼
+GitHub Actions
+     │
+     ├── Build Frontend Image
+     ├── Build API Image
+     ├── Push Images to Docker Hub
+     └── Deploy Updated Stack to Docker Swarm
 ```
 
-Deploy monitoring:
+The deployment uses Docker Swarm rolling updates, ensuring zero-downtime deployments by updating one replica at a time.
 
-```bash
-docker stack deploy -c monitoring/stack-monitor.yml monitor
-```
 
----
 
-## What This Project Demonstrates
 
-This project was built to practice cloud infrastructure concepts rather than frontend development.
 
-It demonstrates:
+## Cloud Engineering Concepts Demonstrated
 
-- Building production-like containerized applications
-- Service orchestration with Docker Swarm
-- Multi-node networking
-- Zero-downtime deployments
-- Container health management
-- Infrastructure monitoring
-- Secure secret management
-- Redis caching
-- PostgreSQL persistence
-- Reverse proxy configuration
-- CI/CD-ready deployment architecture
-
+- Containerization with Docker
+- Multi-Service Architecture
+- Docker Swarm Orchestration
+- Overlay Networking
+- Routing Mesh
+- Service Discovery
+- Reverse Proxy (Nginx)
+- Docker Secrets
+- Health Checks
+- Rolling Updates
+- Automatic Rollback
+- Horizontal Scaling
+- Redis Caching
+- PostgreSQL Persistence
+- Infrastructure Monitoring
+- GitHub Actions CI/CD
+- Infrastructure Status API
 ---
 
 ## Future Improvements
