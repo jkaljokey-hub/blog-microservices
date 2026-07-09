@@ -274,18 +274,6 @@ The deployment uses Docker Swarm rolling updates, ensuring zero-downtime deploym
 - Infrastructure Status API
 ---
 
-## Future Improvements
-
-- GitHub Actions CI/CD
-- Automatic Docker Image Builds
-- HTTPS with Let's Encrypt
-- Traefik Ingress
-- Docker Registry Automation
-- Terraform Infrastructure Provisioning
-- Kubernetes Migration
-
----
-
 ## Author
 
 **Abubakar Alnour**
