@@ -69,8 +69,6 @@ jobs:
 
             cd ~/app
 
-            export IMAGE_TAG=${{ github.sha }}
-
             docker stack deploy \
               --with-registry-auth \
               -c stack.yml \
