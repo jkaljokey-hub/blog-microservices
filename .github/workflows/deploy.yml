@@ -67,7 +67,7 @@ jobs:
 
           script: |
 
-            cd ~/blog-project
+            cd ~/app
 
             export IMAGE_TAG=${{ github.sha }}
 
