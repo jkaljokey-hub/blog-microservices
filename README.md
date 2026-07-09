@@ -85,8 +85,6 @@ Grafana Dashboards
 
 ---
 
-## Features
-
 ### Frontend
 
 - Responsive Next.js Movie Application
@@ -178,6 +176,20 @@ Swarm automatically replaces unhealthy containers.
 
 ---
 
+## Networking
+
+The application uses Docker Swarm Overlay Networks to enable secure communication between services running on different nodes.
+
+- Frontend Overlay Network
+  - Frontend ↔ API
+
+- Backend Overlay Network
+  - API ↔ PostgreSQL
+  - API ↔ Redis
+
+Docker Swarm Service Discovery allows containers to communicate using service names instead of IP addresses, improving scalability and resilience.
+
+---
 ## Monitoring Stack
 
 - Prometheus
